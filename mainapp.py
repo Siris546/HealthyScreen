@@ -78,26 +78,33 @@ def eye_min_next(a):
     else :
         return a[1]
 
+
 water_per_day = 3.5  #3.5 liters of water to be consumed in a day
 # water_interval time is 1 hour
 water_drank = 0     
-eye_start_time = phy_start_time = iterable_time(current_time())   
+eye_start_time = phy_start_time = iterable_time(current_time()) 
+# eye=[1,2,3]
+# print(eye_min_next(eye))  
 print(f"Started program at:\t{print_time(phy_start_time)}")
 if __name__ == "__main__":
     while True:
         time_now = iterable_time(current_time())
         print(f"Current time is:\t{print_time(time_now)}")
-        if (time_now[0] >= 9 and time_now[0] <= 17):
-        # if (time_now[0] >= 9 and time_now[0] <= ):
-            if time_now[1] == 5 and time_now[2] == 0:
+        if (time_now[0] >= 9 and (time_now[0] <= 18 and time_now[1] <= 59)):
+            print(time_now)
+            if (time_now[0] >= 0 and time_now[0] <= 0):
+            # if time_now[1] == 14 and time_now[2] == 0:
                 water()
                 water_drank+=0.4375
                 print("/n Your drinking time will refresh in (1 hour minus time you spent drinking water).")
-            elif time_now[1] == eye_start_time(time_now) and time_now[2] == 0:
+            elif time_now[1] == eye_min_next(time_now)and time_now[2] == 0:
+            # if time_now[1] == 38 and time_now[2] == 0:
                 eye_start_time[1]+=30
                 eyes()
                 print("/n Your eye exercise time will refresh in (30 minutes minus time you spent doing eye exercise).")
             elif time_now[1] == phy_min_next(time_now) and time_now[2] == 0:
+            # if (time_now[1]==38 and time_now[2]==0):
+                print("Physical exercise time")
                 phy_start_time[1]+=45
                 physical()
                 print("/n Your physical exercise time will refresh in (45 minutes minus time you spent doing physical exercise).")
@@ -108,6 +115,3 @@ if __name__ == "__main__":
             print("You are not supposed to be working at this time 🚫. Please take a break.💔")
             print("You drank ",water_drank," liters of water 💦 during this program execution.")
             break
-            
-
-
