@@ -26,7 +26,7 @@ def print_time(tyam):
 
 def water():
     mixer.init()
-    mixer.music.load("HealthyProgrammer/water.mp3")
+    mixer.music.load("./water.mp3")
     mixer.music.play()
     print("Water Drinking Time. Drink 0.475 litres of water.\nEnter 'drank' to stop the alarm.")
     while True:
@@ -40,7 +40,7 @@ def water():
 # print(iterable_time(current_time()))
 def eyes():
     mixer.init()
-    mixer.music.load("HealthyProgrammer/eyes.mp3")
+    mixer.music.load("./eyes.mp3")
     mixer.music.play()
     print("Eye Exercise Time. Enter 'eyesdone' to stop the alarm.")
     while True:
@@ -53,7 +53,7 @@ def eyes():
             
 def physical():
     mixer.init()
-    mixer.music.load("HealthyProgrammer/physical.mp3")
+    mixer.music.load("./physical.mp3")
     mixer.music.play()
     print("Physical Exercise Time. Enter 'physicaldone' to stop the alarm.")
     while True:
@@ -92,18 +92,18 @@ if __name__ == "__main__":
         print(f"Current time is:\t{print_time(time_now)}")
         if (time_now[0] >= 9 and (time_now[0] <= 18 and time_now[1] <= 59)):
             print(time_now)
-            if (time_now[0] >= 0 and time_now[0] <= 0):
-            # if time_now[1] == 14 and time_now[2] == 0:
+            # if (time_now[0] >= 0 and time_now[0] <= 0):
+            if time_now[1] == 0 and time_now[2] == 0:
                 water()
                 water_drank+=0.4375
                 print("/n Your drinking time will refresh in (1 hour minus time you spent drinking water).")
-            elif time_now[1] == eye_min_next(time_now)and time_now[2] == 0:
-            # if time_now[1] == 38 and time_now[2] == 0:
+            if time_now[1] == eye_min_next(time_now)and time_now[2] == 0:
+            # if time_now[1] == 20 and time_now[2] == 0:
                 eye_start_time[1]+=30
                 eyes()
                 print("/n Your eye exercise time will refresh in (30 minutes minus time you spent doing eye exercise).")
-            elif time_now[1] == phy_min_next(time_now) and time_now[2] == 0:
-            # if (time_now[1]==38 and time_now[2]==0):
+            if time_now[1] == phy_min_next(time_now) and time_now[2] == 0:
+            # if time_now[1]==22 and time_now[2]==0:
                 print("Physical exercise time")
                 phy_start_time[1]+=45
                 physical()
